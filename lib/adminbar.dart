@@ -1,8 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:collection/collection.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_application_4/adminpage.dart';
-import 'package:flutter_application_4/teacher/calender.dart';
 import 'package:flutter_application_4/teacher/tsetting.dart';
 
 // import 'appointment.dart';
@@ -93,19 +91,6 @@ class _AdminbarState extends State<Adminbar> {
                               return Adminpage();
                             }));
                   }),
-              ListTile(
-                leading: Icon(Icons.person, color: Color(0xFF8d0c02)),
-                title: Text('Appointment'),
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          settings: RouteSettings(arguments: email),
-                          builder: (BuildContext context) {
-                            return Appointment();
-                          }));
-                },
-              ),
               Divider(color: Color(0xFF8d0c02), indent: 20.0),
               ListTile(
                 leading: Icon(Icons.settings, color: Color(0xFF8d0c02)),

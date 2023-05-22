@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_4/student/pending.dart';
 import 'package:intl/intl.dart';
 
 class create_an_appointment extends StatefulWidget {
@@ -278,17 +277,6 @@ class _create_an_appointmentState extends State<create_an_appointment> {
                         border: OutlineInputBorder(),
                       ),
                     ),
-                    // Center(
-                    //   child: ElevatedButton(
-                    //     style: ElevatedButton.styleFrom(backgroundColor: Colors.black),
-                    //     onPressed: () {
-                    //       Navigator.pop(context);
-                    //       setState(() {
-
-                    //       });
-                    //     },
-                    //     ),
-                    //   ),
 
                     Padding(
                       padding: const EdgeInsets.all(8.0),
@@ -337,18 +325,12 @@ class _create_an_appointmentState extends State<create_an_appointment> {
                                 var _ltime = int.parse(valueChooseSec!);
                                 final ftime =
                                     DateTime(y!, m!, d!, _ftime, 00, 00);
-                                final ltime =
-                                    DateTime(y, m, d, _ltime, 00, 00);
+                                final ltime = DateTime(y, m, d, _ltime, 00, 00);
                                 Timestamp fTimeStamp =
                                     Timestamp.fromDate(ftime);
                                 Timestamp lTimeStamp =
                                     Timestamp.fromDate(ltime);
-                                // print(valueChoosefirst);
-                                // print(valueChooseSec);
-                                // print(ftime);
-                                // print(ltime);
-                                // print(uid);
-                                // print(username);
+
                                 print(firstdateController.text);
                                 FirebaseFirestore.instance
                                     .collection('users')

@@ -2,17 +2,11 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_4/adminpage.dart';
-// import 'login_demo.dart'
-import 'package:flutter_application_4/dontkonw/signin.dart';
 import 'package:flutter_application_4/newlogin/ForgotPassword.dart';
 import 'package:flutter_application_4/newlogin/Singnin.dart';
 import 'package:flutter_application_4/not/undetifi.dart';
 import 'package:flutter_application_4/student/Home_st.dart';
 import 'package:flutter_application_4/teacher/thome.dart';
-
-import '../Logindemo/welcome_demo.dart';
-// import 'Signin.dart';
-// import '../../ForgotPassword.dart';
 
 class Login extends StatelessWidget {
   Login({super.key});
@@ -49,22 +43,15 @@ class _LoginPageState extends State<LoginPage> {
   Future<void> login() async {
     String email = widget.nameController.text;
     String password = widget.passwordController.text;
-    // debugPrint(email);
-    // debugPrint(password);
 
     try {
       if (_fromKey.currentState!.validate()) {
         ScaffoldMessenger.of(context);
-        //   .showSnackBar(const SnackBar(
-        // content: Text('Login Success'),
-        // )
-        // );
 
         await FirebaseAuth.instance
             .signInWithEmailAndPassword(email: email, password: password);
         // login OK
         debugPrint('Login OK');
-        // debugPrint(credential.user!.email);
         // jump to welcome page
         if (mounted) {
           var query = await FirebaseFirestore.instance
@@ -107,10 +94,6 @@ class _LoginPageState extends State<LoginPage> {
               );
             }
           }
-          // Navigator.pushReplacement(
-          //   context,
-          //   MaterialPageRoute(builder: (context) => WelcomeDemo()),
-          // );
         }
       }
     } on FirebaseAuthException catch (e) {
@@ -268,17 +251,4 @@ class _LoginPageState extends State<LoginPage> {
           ),
         ));
   }
-  // var account = [
-  // {'username': 'student', 'password': '1234', 'role': 'student'},
-  // {'username': 'teacher', 'password': '4321', 'role': 'teacher'},
-  // ];
-  // String? login(String username, String password) {
-  //   for (int i = 0; i < account.length; i++) {
-  //     if (username == account[i]['username'] &&
-  //         password == account[i]['password']) {
-  //       return account[i]['role'];
-  //     }
-  //   }
-  //   return null;
-  // }
 }

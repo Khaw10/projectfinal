@@ -43,8 +43,6 @@ class _Home_stState extends State<Home_st> {
           for (var i = 0; i < data.length; i++) {
             if (data[i]['role'] == 'teacher') {
               NameTeacher.add(data[i]['name']);
-              // useremail = data[i]['email'];
-              // userid = data[i]['id'];
             }
           }
           // show data in ListView
@@ -135,19 +133,13 @@ class _CustomSearchDelegateState extends State<CustomSearchDelegate> {
                 ),
               ),
             ),
-            //  FirebaseFirestore.instance
-            //         .collection('users')
-            //         .where('name', isEqualTo: NameTeacher.text.toUpperCase())
-            //         .where('role', isEqualTo: 'Teacher')
-            //         .get()
-            //         .then((QuerySnapshot querySnapshot) {
             Expanded(
               child: StreamBuilder<QuerySnapshot>(
                 stream: FirebaseFirestore.instance
                     .collection('users')
                     .where('role', isEqualTo: 'teacher')
                     .snapshots(),
-                initialData: null, // เพิ่มบรรทัดนี้
+                initialData: null,
                 builder: (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
                     return Center(
@@ -155,7 +147,6 @@ class _CustomSearchDelegateState extends State<CustomSearchDelegate> {
                     );
                   } else {
                     if (snapshot.hasData) {
-                      // ตรวจสอบว่ามีข้อมูลหรือไม่
                       final data = snapshot.data!.docs
                           .map((doc) => doc.data() as Map<String, dynamic>)
                           .toList();

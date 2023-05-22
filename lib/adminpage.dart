@@ -3,7 +3,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_4/adminbar.dart';
 import 'package:flutter_application_4/newlogin/login.dart';
-import 'package:flutter_application_4/teacher/tbar.dart';
 
 class Adminpage extends StatefulWidget {
   const Adminpage({super.key});
@@ -28,10 +27,11 @@ class _AdminpageState extends State<Adminpage> {
       debugPrint('Erro: ${e.code}');
     }
   }
+
   @override
   Widget build(BuildContext context) {
     var email = ModalRoute.of(context)!.settings.arguments as String;
-    
+
     final user = FirebaseAuth.instance.currentUser;
     final _userStream = FirebaseFirestore.instance
         .collection('users')
@@ -51,42 +51,21 @@ class _AdminpageState extends State<Adminpage> {
           }
 
           var data = snapshot.data!.docs;
-          // for (var i = 0; i < data.length; i++) {
-          //   if (data[i]['role'] == 0) {
-              
-          //     // urole = 'not registered';
-          //   }
-          // }
+
           String urole;
-          // String? getrole(var data){
-          //   for (var i = 0; i < data.length; i++) {
-          //    if (data[i]['role'] == 1) {
-          //     return 'admin';
-          //   }else if (data[i]['role'] == 2) {
-          //     return 'student';
-          //   }else if (data[i]['role'] == 3) {
-          //     return 'teacher';
-          //   }else {
-          //     return 'not registered';
-          //   }
-          // }
-          // // return urole;
-          // }
 
           return Scaffold(
               appBar: AppBar(
+                leading: IconButton(
+                  onPressed: () {
+                    logout(context);
+                  },
+                  icon: Icon(Icons.logout),
+                ),
                 backgroundColor: Color(0xFF8d0c02),
                 title: Text('Home'),
-                actions: [
-                  IconButton(
-                    onPressed: () {
-                      logout(context);
-                    },
-                    icon: Icon(Icons.logout),
-                  ),
-                ],
               ),
-              // drawer: const Adminbar(),
+              drawer: const Adminbar(),
               body: Center(
                 child: Column(
                   children: [
@@ -103,6 +82,8 @@ class _AdminpageState extends State<Adminpage> {
                                 width: 100,
                                 height: 100,
                                 child: ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                      backgroundColor: Color(0xFF1f222b)),
                                   child: Row(
                                     children: [
                                       Container(
@@ -126,10 +107,6 @@ class _AdminpageState extends State<Adminpage> {
                                                 Text('Status:',
                                                     style: TextStyle(
                                                         color: Colors.white)),
-
-                                                // if(data[index]['role']==0)
-                                                // {var};
-                                                // getrole(data);
                                                 Text('${data[index]['role']}',
                                                     style: TextStyle(
                                                         color: Colors.yellow)),
@@ -150,16 +127,7 @@ class _AdminpageState extends State<Adminpage> {
                                           title: Column(
                                             crossAxisAlignment:
                                                 CrossAxisAlignment.center,
-                                            children: [
-                                              // Text(
-                                              //     ' Date: {data[index][date]}'),
-                                              // Text(
-                                              //     'Time: {data[index][ftime]}.00 - {data[index][ltime]}.00'),
-                                              // Text(
-                                              //     'Location: {data[index][note]}'),
-                                              // Text(
-                                              //     'Status : {data[index][status]}'),
-                                            ],
+                                            children: [],
                                           ),
                                           content: Column(
                                             mainAxisSize: MainAxisSize.min,

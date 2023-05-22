@@ -14,56 +14,12 @@ class _ContactState extends State<Contact> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xFF8d0c02),
-          title: Text('Contact'),
-        ),
-        drawer: Home(),
+        title: Text('Contact'),
+      ),
+      drawer: Home(),
       body: SafeArea(
         child: Column(
           children: [
-            // Container(
-            //   width: double.maxFinite,
-            //   height: 116,
-            //   decoration: BoxDecoration(
-            //     color: Colors.red,
-            //     border: Border.all(
-            //       color: Colors.grey,
-            //       width: 3,
-            //     ),
-            //   ),
-            //   child: Row(
-            //     children: [
-            //       Container(
-            //         width: 70,
-            //         child: Padding(
-            //           padding: const EdgeInsets.only(left: 1),
-            //           child: Icon(
-            //             Icons.menu,
-            //             size: 50,
-            //             color: Colors.white,
-            //           ),
-            //         ),
-            //       ),
-            //       Container(
-            //         width: 200,
-            //         child: Column(
-            //           children: [
-            //             Container(
-            //               width: 270,
-            //               child: Padding(
-            //                 padding: const EdgeInsets.only(top: 40),
-            //                 child: Text(
-            //                   'Contact',
-            //                   style:
-            //                       TextStyle(fontSize: 30, color: Colors.black),
-            //                 ),
-            //               ),
-            //             ),
-            //           ],
-            //         ),
-            //       ),
-            //     ],
-            //   ),
-            // ),
             SizedBox(
               height: 20,
             ),

@@ -1,12 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter_application_4/providers/user2_provider.dart';
-import 'package:flutter_application_4/providers/user2_provider.dart';
+
 import 'package:flutter_application_4/student/Contact.dart';
 import 'package:flutter_application_4/student/Home_st.dart';
-import 'package:flutter_application_4/student/settings.dart'; // <-- Remove comment here
-import 'package:provider/provider.dart';
-import '../dontkonw/home1.dart';
+import 'package:flutter_application_4/student/settings.dart';
 import 'pending.dart';
 import 'package:flutter/material.dart';
 
@@ -26,20 +23,6 @@ class _HomeState extends State<Home> {
   final user = FirebaseAuth.instance.currentUser;
   final _userStream =
       FirebaseFirestore.instance.collection('users').snapshots();
-  // UserProvider2 _userProvider2 = new UserProvider2()
-  // Future<void> getRole() async {
-  //   var query = await FirebaseFirestore.instance
-  //       .collection('users')
-  //       .where('email', isEqualTo: user!.email)
-  //       .get();
-  //   var docs = query.docs;
-  //   // var ans = query.name.
-  //   print(docs.length);
-  //   print(query);
-  //   print(docs[0]['name']);
-  //   return ;
-  //   // return docs[0]['name'];
-  // }
   @override
   Widget build(BuildContext context) {
     var email = ModalRoute.of(context)!.settings.arguments as String;

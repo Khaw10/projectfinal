@@ -1,10 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter_application_4/allsignin.dart';
 import 'package:flutter_application_4/newlogin/login.dart';
-
 import 'home.dart';
-import 'pending.dart';
-import '../dontkonw/signin.dart';
 import 'package:flutter/material.dart';
 
 class Settings2 extends StatefulWidget {
@@ -33,6 +29,7 @@ class _Settings2State extends State<Settings2> {
       debugPrint('Erro: ${e.code}');
     }
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,7 +46,11 @@ class _Settings2State extends State<Settings2> {
               onTap: () {
                 logout(context);
               },
-              leading: Icon(Icons.logout_sharp,color: Colors.black,size: 30,),
+              leading: Icon(
+                Icons.logout_sharp,
+                color: Colors.black,
+                size: 30,
+              ),
               title: const Text(
                 'Sign out',
                 style: TextStyle(
@@ -58,7 +59,7 @@ class _Settings2State extends State<Settings2> {
                     fontWeight: FontWeight.bold),
               ),
             ),
-           ],
+          ],
         ),
       ),
     );

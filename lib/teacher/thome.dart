@@ -149,7 +149,6 @@ class _ThomeState extends State<Thome> {
                                                 // controller: _tcName,
                                                 controller: anotc,
                                                 decoration: InputDecoration(),
-                                                
                                               ),
                                               if (ans != null) Text(ans)
                                             ],
@@ -193,7 +192,6 @@ class _ThomeState extends State<Thome> {
                                     if (answer == 'Approve') {
                                       var up = {
                                         'status': 'Approve',
-                                        
                                       };
                                       FirebaseFirestore.instance
                                           .collection('bookings')
@@ -206,21 +204,19 @@ class _ThomeState extends State<Thome> {
                                           );
                                     }
                                     if (answer == 'Disapproved') {
-                                      
-                                        var up = {
-                                          'status': 'Disapproved',
-                                          'annotation': anotc.text,
-                                        };
-                                        FirebaseFirestore.instance
-                                            .collection('bookings')
-                                            .doc(data[index].id)
-                                            .update(up)
-                                            .then(
-                                              (value) =>
-                                                  print('Document update!'),
-                                              onError: (e) => print('Error $e'),
-                                            );
-                                      
+                                      var up = {
+                                        'status': 'Disapproved',
+                                        'annotation': anotc.text,
+                                      };
+                                      FirebaseFirestore.instance
+                                          .collection('bookings')
+                                          .doc(data[index].id)
+                                          .update(up)
+                                          .then(
+                                            (value) =>
+                                                print('Document update!'),
+                                            onError: (e) => print('Error $e'),
+                                          );
                                     }
                                   },
                                 ),

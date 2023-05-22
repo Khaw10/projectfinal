@@ -2,9 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 import 'home.dart';
-import '../dontkonw/home1.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_4/student/home.dart';
 
 class Pending extends StatefulWidget {
   static const routeName = '/pending';
@@ -19,14 +17,13 @@ class Pending extends StatefulWidget {
 
 class _PendingState extends State<Pending> {
   final _scaffoldKey = new GlobalKey<ScaffoldState>();
-String? uid;
+  String? uid;
   TextEditingController anotc = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     var email = ModalRoute.of(context)!.settings.arguments as String;
 
-    
     final user = FirebaseAuth.instance.currentUser;
     final _userStream = FirebaseFirestore.instance
         .collection('bookings')
@@ -51,61 +48,14 @@ String? uid;
               uid = user.uid;
             }
           });
-          // void updateUI() {
 
-          //     FirebaseAuth.instance.authStateChanges().listen((User? user) {
-          //       if (user == null) {
-          //         print('User is currently signed out!');
-          //       } else {
-          //         print('User is signed in!');
-          //         // setState(() {
-          //         // uid = user.uid;
-          //         // });
-          //       }
-          //     });
-
-          // }
           // updateUI();
           print(email);
           print(uid);
 
           // data ready
-
-          // convert data to List
-          // var status = [];
-          // // print(status);
-          // // List<Map<dynamic,dynamic>> status;
-          // var userimage;
-          // var username;
-          // var useremail;
-          // var userid;
-
           var data = snapshot.data!.docs;
-          // for (var i = 0; i < data.length; i++) {
-          //   // if (data[i]['student'] == uid) {
-          //     // username = data[i]['name'];
-          //     // useremail = data[i]['email'];
-          //     // userid = data[i]['id'];
-          //     // userimage = data[i]['image'];
-          //     var ans = {
-          //       'teacher': data[i]['teacher'],
-          //       'temail': data[i]['temail'],
-          //       'timage': data[i]['timage'],
-          //       'sname': data[i]['sname'],
-          //       'student': data[i]['student'],
-          //       'simage': data[i]['simage'],
-          //       'note': data[i]['note'],
-          //       'date': data[i]['date'],
-          //       'ftime': data[i]['ftime'],
-          //       'ltime': data[i]['ltime'],
-          //       'ftimeStamp': data[i]['ftimeStamp'],
-          //       'ltimeStamp': data[i]['ltimeStamp'],
-          //       'status': data[i]['status'],
-          //     };
-          //     status.add(ans);
-          //   // }
-          // }
-          // print(status);
+
           // show data in ListView
           return Scaffold(
               appBar: AppBar(
@@ -128,8 +78,8 @@ String? uid;
                                   padding: const EdgeInsets.only(
                                       left: 45, right: 45),
                                   child: ElevatedButton(
-                                     style: ElevatedButton.styleFrom(
-                                      backgroundColor: Color(0xFF1f222b)),
+                                    style: ElevatedButton.styleFrom(
+                                        backgroundColor: Color(0xFF1f222b)),
                                     child: Row(
                                       children: [
                                         Text('${data[index]['date']}'),
@@ -163,13 +113,16 @@ String? uid;
                                                 SizedBox(
                                                   height: 10,
                                                 ),
-                                                Text('Date: ${data[index]['date']}'),
+                                                Text(
+                                                    'Date: ${data[index]['date']}'),
                                                 Text(
                                                     'Time: ${data[index]['ftime']}.00 - ${data[index]['ltime']}.00'),
-                                                Text('Note: ${data[index]['note']}'),
+                                                Text(
+                                                    'Locations: ${data[index]['note']}'),
                                                 Text(
                                                     'Status: ${data[index]['status']}'),
-                                                Text('${data[index]['annotation']}'),
+                                                Text(
+                                                    '${data[index]['annotation']}'),
                                               ],
                                             ),
                                             content: Column(
@@ -182,44 +135,9 @@ String? uid;
                                                 ),
                                               ],
                                             ),
-                                            // actions: [
-                                            //   Row(
-                                            //     mainAxisAlignment: MainAxisAlignment.center,
-                                            //     children: [
-                                            //       TextButton(
-                                            //         onPressed: () {
-                                            //           Navigator.of(context).pop('Approve');
-                                            //         },
-                                            //         child: const Text('Approve'),
-                                            //       ),
-                                            //       TextButton(
-                                            //         onPressed: () {
-                                            //           Navigator.of(context).pop('Disapproved');
-                                            //         },
-                                            //         child: const Text(
-                                            //           'Disapproved',
-                                            //           style: TextStyle(color: Colors.red),
-                                            //         ),
-                                            //       ),
-                                            //     ],
-                                            //   ),
-                                            // ],
                                           );
                                         },
                                       );
-
-                                      // if (answer == 'Approve') {
-                                      //   // FirebaseFirestore.instance.collection('uesrs').doc(docId).delete().then(
-                                      //   //       (value) => print('Document deleted!'),
-                                      //   //       onError: (e) => print('Error $e'),
-                                      //   //     );
-                                      // }
-                                      // if (answer == 'Disapproved') {
-                                      //   // FirebaseFirestore.instance.collection('uesrs').doc(docId).delete().then(
-                                      //   //       (value) => print('Document deleted!'),
-                                      //   //       onError: (e) => print('Error $e'),
-                                      //   //     );
-                                      // }
                                     },
                                   ),
                                 ),

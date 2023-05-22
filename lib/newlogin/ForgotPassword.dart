@@ -3,10 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_4/newlogin/login.dart';
 import 'package:flutter_application_4/newlogin/profileCheck.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-// import 'package:ui/project/loginProject.dart';
-// import 'package:ui/project/profileCheck.dart';
-
-// import 'Forgot_Password_Verify.dart';
 
 class Forgot_Password extends StatelessWidget {
   const Forgot_Password({super.key});
@@ -124,7 +120,9 @@ class _Forgot_Password_PageState extends State<Forgot_Password_Page> {
                 height: 50,
                 padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                 child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(backgroundColor: Color(0xFF8d0c02),),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Color(0xFF8d0c02),
+                  ),
                   child: const Text('Verify Email'),
                   onPressed: Forgot,
                 ),
@@ -136,4 +134,3 @@ class _Forgot_Password_PageState extends State<Forgot_Password_Page> {
     );
   }
 }
-

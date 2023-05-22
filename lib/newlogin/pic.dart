@@ -3,7 +3,6 @@ import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
-// import 'package:flutter_application_1/Project_Mobile/main_page.dart';
 import 'package:image_picker/image_picker.dart';
 
 class AddProduct extends StatefulWidget {
@@ -28,7 +27,7 @@ class _AddProductState extends State<AddProduct> {
   int _price = 0;
 
   // function that let you pick an image from gallery
-   selectFile() async {
+  selectFile() async {
     final result = await imagePicker.pickImage(source: ImageSource.gallery);
     if (result == null) return;
     setState(() {
@@ -37,7 +36,7 @@ class _AddProductState extends State<AddProduct> {
   }
 
   // Upload the imgage to FireBase storage
-   uploadFile() async {
+  uploadFile() async {
     // Name the file with time to the milisecond
     String uniqueFileName = DateTime.now().millisecondsSinceEpoch.toString();
     final path = 'images/$uniqueFileName';
@@ -56,7 +55,7 @@ class _AddProductState extends State<AddProduct> {
   }
 
   // Uploading the data to FireBase DB
-   addCollectionToFireBase(
+  addCollectionToFireBase(
       String name, int price, String detail, int tel) async {
     await uploadFile();
     var data = {

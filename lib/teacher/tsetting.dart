@@ -1,10 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter_application_4/allsignin.dart';
 import 'package:flutter_application_4/newlogin/login.dart';
 
 import 'tbar.dart';
-import 'thome.dart';
-import '../dontkonw/tsignin.dart';
 import 'package:flutter/material.dart';
 
 class Tsetting extends StatefulWidget {
